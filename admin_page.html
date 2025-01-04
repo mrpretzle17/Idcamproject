@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Black background */
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffccff; /* Light purple for the title */
+            margin: 2vh 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90vw;
+            height: 80vh;
+            margin: 2vh auto;
+        }
+
+        /* User Table */
+        .user-table {
+            width: 55vw;
+            height: 100%;
+            overflow-y: auto;
+            border-collapse: collapse;
+            border: 1px solid #4b0082; /* Purple border */
+            border-radius: 1vh;
+            background-color: #2e2e2e; /* Grey background */
+        }
+
+        .user-table th, .user-table td {
+            padding: 1vh;
+            text-align: left;
+        }
+
+        .user-table th {
+            background-color: #4b0082; /* Dark purple */
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        .user-table td {
+            background-color: #1a1a1a; /* Black rows */
+            color: white;
+        }
+
+        .user-table tr:nth-child(even) td {
+            background-color: #2e2e2e; /* Alternate row color */
+        }
+
+        .user-actions {
+            width: 145vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        .box {
+            background-color: #2e2e2e; /* Grey box background */
+            border: 1px solid #4b0082; /* Purple border */
+            border-radius: 1vh;
+            padding: 2vh;
+            flex-direction: column;
+            padding-right: 2vw;
+        }
+
+        h2 {
+            color: #ffccff; /* Light purple headings */
+            margin-bottom: 1vh;
+            font-size: 2vh;
+        }
+
+        label {
+            font-size: 1.8vh;
+            margin-bottom: 1vh;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            height: 5vh;
+            padding: 1vh;
+            border: 1px solid #4b0082;
+            border-radius: 1vh;
+            background-color: #1a1a1a;
+            color: white;
+            margin-bottom: 2vh;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 1vh;
+            accent-color: black;
+        }
+        input[type="checkbox"]:checked {
+            accent-color: #4b0082; /* Purple color when clicked */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 1vh;
+            padding: 1vh 2vh;
+            cursor: pointer;
+            font-size: 1.8vh;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>Admin Controls</h1>
+
+    <div class="container">
+        <!-- Left: User Table -->
+        <div class="user-table">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Admin/User</th>
+                </tr>
+                {% for user in userDetails %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>{{ 'Admin' if user[3] else 'User' }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="user-actions">
+            <!-- Box to Add User -->
+            <div class="box">
+                <h2>Add User</h2>
+                <form method="POST" action="/admin_page">
+                    <label for="id">ID:</label>
+                    <input type="number" name="id" required>
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" required>
+
+                    <label>
+                        <input type="checkbox" name="admin" value="1">
+                        Admin
+                    </label>
+
+                    <input type="submit" value="Add User">
+                </form>
+            </div>
+
+            <!-- Box to Remove User -->
+            <div class="box">
+                <h2>Remove User</h2>
+                <form method="POST" action="/admin_page">
+                    <label for="id_remove">User ID to Remove:</label>
+                    <input type="number" name="id_remove" required>
+
+                    <input type="submit" value="Remove User">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
