@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleinnersite.css') }}">
+    <link rel="icon" type="image/png" href="static/logo.png">
+</head>
+<body>
+    <div class="header">
+        <div class="user-info">
+            Current Mode: {{ current_mode }}
+            Logged in as: <span id="username">{{ session['name'] }}</span>
+        </div>
+        <div class="links_head">
+            <a href="/logout">Logout</a>
+            {% if session['admin'] == 1 %}
+                {% if request.path == '/admin_page' %}
+                    <a href="/main_page">Back to Main Page</a>
+                {% else %}
+                    <a href="/admin_page">Admin Settings</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
