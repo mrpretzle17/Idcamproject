@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleinnersite.css') }}">
+    <title>Main Page</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</head>
+<body onload="startTime()">
+    <!-- <div class="topnav">
+        <h1>Welcome, {{ session['name'] }}</h1>
+        <a href="/logout">Logout</a>
+        <a href="/admin_page">Admin Settings</a>
+    </div> -->
+
+    {% include 'header.html' %}
+    <div class="videoex">
+        <div id="time"></div>
+        <img src="{{ url_for('video_feed', mode=current_mode or 'short') }}" alt="Video Stream" width="100%">
+        <div>Front School Camera</div>
+    </div>
+    <div class="vertical-bar">
+        <a href="#home" class="button">Edit camera angle</a>
+        <a href="{{ url_for('switch_mode', mode='short') }}" class="button">Short Mode</a>
+        <a href="{{ url_for('switch_mode', mode='long') }}" class="button">Long Mode</a>
+        <a href="{{ url_for('switch_mode', mode='regular') }}" class="button">regular</a>
+        <a href="#about" class="button">Face Id</a>
+        <a href="#services" class="button">Records</a>
+        <a href="#contact" class="button">Extra</a>
+    </div>
+</body>
+</html>
