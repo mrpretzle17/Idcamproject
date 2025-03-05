@@ -1,0 +1,267 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: #333333;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header .left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2rem;
+    font-weight: 350;
+}
+
+.header .right-section {
+    margin-right: 30px;
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    font-weight: 350;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header .right-section a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 350;
+    transition: 0.3s;
+}
+
+.header .right-section a:hover {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+/* Vertical Bar Styles */
+.vertical-bar {
+    position: fixed;
+    top: 9vh; /* Directly below the header */
+    right: 0;
+    width: 25vw;
+    height: 91vh; /* Full height minus header */
+    background-color: #252525;
+    /* overflow-y: auto; */
+    z-index: 9;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.vertical-bar .button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left;
+    border-bottom: 1px solid #444444;
+    cursor: pointer;
+}
+
+.vertical-bar .button:hover {
+    background-color: #444444;
+    color: #dddddd;
+}
+
+/* Main Content Section */
+.videoex {
+    position: relative;
+    margin-top: 9vh; /* Space below the header */
+    left: 0;
+    width: 47vw;
+    background-color: #7a1c7a;
+    color: #111;
+    padding: 55px 20px 10px 20px;
+    /* border-radius: 4px; */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.videoex img {
+    width: 100%;
+    height: auto;
+
+}
+
+#time {
+    text-align: right;
+    font-size: 1rem;
+    /* color: #111; */
+}
+
+/* Side Bar (Collapsed State) */
+.side-bar {
+    text-align: center;
+    position: fixed;
+    top: 9vh;
+    right: 0;
+    height: 91vh;
+    width: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    z-index: 11;
+    font-weight: 300;
+
+}
+.side-bar h2 {
+    font-weight: 400;
+}
+#mysidenav{
+    padding-top: 70px;
+}
+#mysidenav2{
+    padding-top: 70px;
+}
+.side-bar form{
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center;
+}
+.side-bar input{
+    width: 20vw;
+    height: 30px;
+    background: linear-gradient(to right, #151315 0%, #000000 100%);
+    font-size: 17px;
+    color: #fff;
+    border: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding-bottom:10px;
+}
+.side-bar button {
+    margin-top: 10px;
+    width: 20vw;
+    height: 30px;
+}
+.side-bar .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.log-visual{
+    position: absolute;
+    top:9vh;
+    width: 25.5vw;
+    background-color: #444444;
+    right: 25vw;
+    text-align: center;
+    font-weight: 400;
+    /* font-size: ; */
+    height: 91vh;
+    /* overflow-y: auto; */
+    
+}
+.loglist{
+    height: 6vh;
+    overflow-y: auto;
+    flex-direction: column-reverse;
+}
+.log-visual h2{
+    font-weight: 400;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #7b7777;
+}
+#name_list1{
+    padding-bottom: 1vh;
+    /* padding-left: 1vw; */
+    text-transform: capitalize;
+    display: flex;
+    /* flex-direction: column;  Stack elements vertically */
+    /* color: #6a0359; */
+    text-align: left;
+    /* border-top: 1px solid #7b7777; */
+    overflow-y: auto;
+}
+#name_list1 div{
+    height: 3vh;
+    /* padding-left: 1vw; */
+    padding: 1vh;
+    border-bottom: 1px solid #7b7777;
+}
+#name_list1 div:nth-child(even) {
+    background-color: #1a1a1a; /* Black for even children */
+    color: white; /* Optional: adjust text color for readability */
+}
+
+#facesdblistid{
+    padding-bottom: 1vh;
+    /* padding-left: 1vw; */
+    text-transform: capitalize;
+    display: flex;
+    /* flex-direction: column;  Stack elements vertically */
+    flex-direction: column;
+    /* color: #6a0359; */
+    text-align: center;
+    /* border-top: 1px solid #7b7777; */
+    height: 75vh;
+    overflow-y: auto;
+    
+}
+#facesdblistid div{
+    height: 3vh;
+    /* padding-left: 1vw; */
+    padding: 1vh;
+    border-bottom: 1px solid #7b7777;
+}
+#facesdblistid div:nth-child(even) {
+    background-color: #1a1a1a; /* Black for even children */
+    color: white; /* Optional: adjust text color for readability */
+}
+
+
+.errors{
+    position: fixed;
+    top: 5vh;
+    width: 90vw;
+    height: 8vh;
+    border-radius: 0.5vw;
+    text-align: center;
+    background-color: #53024f;
+    padding-top: 2.5vh;
+    font-size: 2.5vh;
+    opacity: 1;                   /* Fully visible */
+    transition: opacity 2s ease-in-out; /* Smooth transition */
+    animation: fadeOut 3s 3s forwards;
+    z-index: 20;
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
