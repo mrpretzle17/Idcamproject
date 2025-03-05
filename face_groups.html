@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Student List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/facesincss.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+<div class="vertical-bar">
+    <button onclick="showrow(0)" class="dropdown-btn">Grades<i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-container">
+                <div class="new-classes-here"></div>
+                <a onclick="addgrade(0)" class="button">Add Grade</a>
+                <div class="button" id="addsmthggrade">
+                    <form action="{{ url_for('add_grade') }}" method="POST">
+                    <input id="numinp" type="text" name="gradename" placeholder="Number" required>
+                    <input id="subinp" type="submit" value="Add Grade">
+                    </form>
+                </div>
+                <a onclick="addgrade(1)" class="button">Remove Grade</a>
+                <div class="button" id="addsmthggrade">
+                    <form action="{{ url_for('remove_grade') }}" method="POST">
+                    <input id="numinp" type="text" name="gradename" placeholder="Number" required>
+                    <input id="subinp" type="submit" value="Add Grade">
+                    </form>
+                </div>
+        </div>
+
+</div>
+
+<div id="content">
+    <h3 id="class-title">Select a class to see the students</h3>
+    <table id="student-table" style="display:none;">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>ID</th>
+                <th>Pic in DB</th>
+
+            </tr>
+        </thead>
+        <tbody id="student-body">
+        </tbody>
+    </table>
+    <div class="buttons_student" id="buttonsforstudents">
+    <button onclick="addstudent(0)" class="classadd">Add Classmate</button>
+    <button onclick="addstudent(1)" class="classadd">Remove Classmate</button>
+    <button onclick="downloadstudentnames()" class="classadd">Download Names list</button>
+    <button onclick="downloadstudentdataexl()" class="classadd">Download Full list to Excel</button>
+    </div>
+    <div class="addstudent" id="addsmthgstudent">
+        <form action="{{ url_for('add_student') }}" method="POST">
+        <input id="addstudentnameid" type="text" name="studentname" placeholder="Name" required>
+        <input type="hidden" id="classnumber" name="classid" value="">
+        <input id="addstudentnameid" type="number" name="studentid" placeholder="Id Number" required>
+        <input id="submitstudentnameid" type="submit" value="Add Classmate">
+        </form>
+    </div>
+
+    <div class="removestudent" id="addsmthgstudent">
+        <form action="{{ url_for('remove_student') }}" method="POST" class="form-container">
+            <input type="hidden" id="classnumber2" name="classid" value="">
+            <input class="input-field" type="text" name="studentname" placeholder="Name">
+            <p class="or-text">or</p>
+            <input class="input-field" type="number" name="studentid" placeholder="Id Number">
+            <input class="submit-btn" type="submit" value="Remove Classmate">
+        </form>
+    </div>
+    
+</div>
+
+
+
+</body>
+</html>
