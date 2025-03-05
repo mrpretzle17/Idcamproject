@@ -1,0 +1,278 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 350;
+}
+
+.vertical-bar {
+    position: fixed;
+    top: 9vh; /* Directly below the header */
+    left: 0;
+    width: 25vw;
+    height: 91vh; /* Full height minus header */
+    background-color: #252525;
+    /* overflow-y: auto; */
+    z-index: 9;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+    overflow-x: hidden;
+}
+
+.vertical-bar .button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left;
+    border-bottom: 1px solid #444444;
+    cursor: pointer;
+    
+}
+
+.vertical-bar .button:hover {
+    background-color: #444444;
+    color: #dddddd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; /* Set background to black */
+    color: white; /* Set text color to white for contrast */
+    margin: 0; /* Remove default margins */
+    height: 100vh; /* Full height */
+}
+#content {
+    top: 15vh;
+    left: 30vw;
+    position: relative;
+    /* padding: 15px; */
+    width: 60vw;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#student-table thead {
+  display: table; /* Ensures proper table alignment for the header */
+  width: 100%; /* Matches tbody width */
+}
+
+#student-table tbody {
+  display: block; /* Allows scrolling within tbody */
+  max-height: 40vh;
+  overflow-y: auto;
+  width: 100%; /* Ensures tbody takes the full width */
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  width: 33%; /* Ensures consistent column widths */
+  box-sizing: border-box;
+}
+
+th {
+  background-color: #444; /* Darker header */
+}
+
+tr:nth-child(even) {
+  background-color: #222; /* Dark grey for even rows */
+}
+
+tr:nth-child(odd) {
+  background-color: #333; /* Slightly lighter grey for odd rows */
+}
+
+tr {
+  border-bottom: 1px solid #444; /* Border between rows */
+  display: table; /* Ensures each row behaves like a full-width table row */
+  width: 100%; /* Ensures rows take full width */
+}
+
+  /* Style the sidenav links and the dropdown button */
+  .vertical-bar a, .dropdown-btn {
+    display: block;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+  }
+  
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: #404040;
+    color: white;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #262626;
+    margin-left: 1vw;
+
+  }
+
+  #addsmthggrade {
+    padding: 0;
+    padding-left: 1vw;
+    height: 50px;
+    padding: 5px;
+    border-left: 1px solid #444444; 
+    display: none; 
+
+  }
+  #addsmthggrade:hover {
+    background-color: #262626;
+  }
+  #addsmthgclass {
+    padding: 0;
+    padding-left: 1vw;
+    height: 50px;
+    padding: 5px;
+    border-left: 1px solid #444444; 
+    display: none; 
+
+  }
+  #addsmthgclass:hover {
+    background-color: #262626;
+  }
+  #removesmthgclass {
+    padding: 0;
+    padding-left: 1vw;
+    height: 50px;
+    padding: 5px;
+    border-left: 1px solid #444444; 
+    display: none; 
+
+  }
+  #removesmthgclass:hover {
+    background-color: #262626;
+  }
+  #numinp {
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #444444; 
+    color: white;
+    background-color: #232222;
+    width: 70%;
+  }
+
+  #subinp{
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #444444; 
+    color: white;
+    background-color: #232222;
+    font-size: 0.8rem;
+    width: 25%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  #subinp:hover{
+    background-color: #181717;
+  }
+  #numinp::placeholder {
+    color: white;
+    font-size: 0.8rem;
+
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+
+.buttons_student{
+  display: none;
+  margin-top: 1vh;
+  border: 1px solid #444444;
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
+  height: 5vh;
+}
+.classadd{
+  /* display: none; */
+  position: relative;
+  background-color: #222;
+  border: 1px solid #444444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 25%;
+  color: white;
+  font-size: 0.8rem;
+  
+}
+.classadd:hover {
+  background-color: #141414;
+}
+#addsmthgstudent{display: none;}
+.addstudent{
+  padding: 0;
+  margin-top: 1vh;
+  /* border: 1px solid #444444; */
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  height: 5vh;
+}
+#addstudentnameid{
+    padding: 0;
+    background-color: #222;
+    border: 1px solid #444444;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 5vh;
+    width: 20vw;
+    color: white;
+    font-size: 0.8rem;
+}
+#submitstudentnameid{
+  background-color: #222;
+  border: 1px solid #444444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 5vh;
+  width: 15vw;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.removestudent {
+  display: flex;
+  justify-content: left;
+  width: 60vw;
+  height: 5vh;
+  /* border: 1px solid #444444; */
+  padding: 10px;
+}
