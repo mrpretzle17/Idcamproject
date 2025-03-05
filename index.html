@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styleinnersite.css') }}">
+    <title>Main Page</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+{% for message in get_flashed_messages() %}<div class="errors">{{ message }}</div>{% endfor %}
+<body onload="startTime()"></body>
+
+    {% include 'header.html' %}
+    <div class="videoex">
+        <div id="time"></div>
+        <img src="{{ url_for('video_feed', mode=current_mode or 'short') }}" alt="Video Stream" width="100%">
+        <div>Front School Camera</div>
+    </div>
+    <div class="log-visual">
+        <h2 id="nttype">Face Detection Log</h2>
+        <div class="loglist" id="name_list1">
+        </div>
+    </div>
+    <div class="vertical-bar">
+        <a onclick="close_side()" class="button">Face Log</a>
+        <a href="{{ url_for('face_lists') }}" class="button">Face Lists</a>
+        <a onclick="attendance()" class="button">Attendance</a>
+        <a href="{{ url_for('switch_mode', mode='short') }}" class="button">Short Mode</a>
+        <a href="{{ url_for('switch_mode', mode='long') }}" class="button">Long Mode</a>
+        <a href="{{ url_for('switch_mode', mode='regular') }}" class="button">regular</a>
+        <a onclick="open_add_face()" class="button">Add Face</a>
+        <a onclick="open_remove_face()" class="button">Remove Face</a>
+        <a onclick="facesindb()" class="button">Faces in DB</a>
+        <a href="#contact" class="button">past attendance sheets</a>
+        <a href="#contact" class="button">Extra</a>
+    </div>
+    <div class="side-bar" id="mysidenav">
+        <a onclick="close_side()" class="closebtn">&times;</a>
+        <h2>Add a New Face</h2>
+        <form action="{{ url_for('add_face') }}" method="POST">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <button type="submit">Add Face</button>
+        </form>
+    </div>
+    <div class="side-bar" id="mysidenav2">
+        <a class="closebtn" onclick="close_side()">&times;</a>
+        <h2>Remove a Face</h2>
+        <form action="{{ url_for('remove_face') }}" method="POST">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <button type="submit">Remove Face</button>
+        </form>
+    </div>
+    <div class="side-bar" id="mysidenav3">
+        <a onclick="close_side()" class="closebtn">&times;</a>
+        <h2>Choose a class:</h2>
+        <button onclick="downloadnamesnp()">Download Attendance sheet to notepad</button>
+        <button onclick="downloadnamesx()">Download Attendance sheet to Excel</button>
+        <button onclick="close_side()">Upload Attendance sheet to SQL</button>
+    </div>
+    <div class="side-bar" id="mysidenav4">
+        <a onclick="close_side()" class="closebtn">&times;</a>
+        <h2>Faces:</h2>
+        <div class="faceslist" id="facesdblistid"></div>
+    </div>
+</body>
+</html>
